@@ -15,7 +15,12 @@
  */
 import { z } from 'zod';
 
-import { collectText, createClient, resolveModel, runExample } from '../src/index.ts';
+import {
+  collectText,
+  createClient,
+  resolveModel,
+  runExample,
+} from '../lesson02-prompt-engineering/src/index.ts';
 
 // Zod schema 同时承担三个角色：生成给模型看的 JSON Schema、运行时校验、TS 类型推导
 const BugReportSchema = z.object({
@@ -72,7 +77,7 @@ await runExample(async () => {
 
 /*
  * ── 进阶：用 json_schema 严格模式 ──────────────────────────────
- * 需要把 .env 里的 APP_MODEL 换成支持的模型，例如 qwen3.8-max，
+ * 需要把 .env 里的 LLM_MODEL 换成支持的模型，例如 qwen3.8-max，
  * 然后把上面的 response_format 换成：
  *
  *   response_format: {

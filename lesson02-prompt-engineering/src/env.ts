@@ -10,6 +10,7 @@
 /** 读取必填环境变量；缺失时抛出一条能看懂的错误，而不是让 SDK 报 401。 */
 export function requireEnv(name: string): string {
   const value = process.env[name];
+  // console.log(process.env)
   if (value === undefined || value.trim() === '') {
     throw new Error(
       `缺少环境变量 ${name}。\n` +
@@ -17,6 +18,7 @@ export function requireEnv(name: string): string {
         `运行时记得带上 --env-file-if-exists=.env（npm start / npm run dev 已内置）。`,
     );
   }
+  console.log(`${name}=${value} `);
   return value;
 }
 

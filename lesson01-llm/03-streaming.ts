@@ -9,7 +9,11 @@
  * 流式是边生成边推送，体验完全不同。另外 max_tokens 开得很大时，
  * 非流式请求容易撞上 HTTP 超时。
  */
-import { createClient, resolveModel, runExample } from '../src/index.ts';
+import {
+  createClient,
+  resolveModel,
+  runExample,
+} from '../lesson02-prompt-engineering/src/index.ts';
 
 await runExample(async () => {
   const client = createClient();

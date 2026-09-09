@@ -10,7 +10,12 @@
  */
 import type { ChatCompletionMessageParam } from 'openai/resources/chat/completions';
 
-import { collectText, createClient, resolveModel, runExample } from '../src/index.ts';
+import {
+  collectText,
+  createClient,
+  resolveModel,
+  runExample,
+} from '../lesson02-prompt-engineering/src/index.ts';
 
 const SYSTEM_PROMPT = `你是一位严谨的技术讲师。
 回答必须满足：

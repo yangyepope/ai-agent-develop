@@ -32,7 +32,7 @@ export async function runExample(main: () => Promise<void>): Promise<void> {
 function describeError(error: unknown): string {
   // 从最具体到最宽泛地判断，这样才能给出有针对性的提示
   if (error instanceof OpenAI.AuthenticationError) {
-    return 'API Key 无效或已失效（401）。请检查 .env 里的 DASHSCOPE_API_KEY。';
+    return 'API Key 无效或已失效（401）。请检查 .env 里的 LLM_API_KEY。';
   }
   if (error instanceof OpenAI.PermissionDeniedError) {
     return '没有权限（403）。可能是该模型未开通，或 Key 所属账号无此模型权限。';
@@ -48,8 +48,7 @@ function describeError(error: unknown): string {
   }
   if (error instanceof OpenAI.APIConnectionError) {
     return (
-      '连不上 API。检查网络 / 代理是否正常：\n' +
-      '  curl -sI https://dashscope.aliyuncs.com/compatible-mode/v1/models | head -1'
+      '连不上 API。检查网络 / 代理是否正常：\n' + '  curl -sI "$LLM_BASE_URL/models" | head -1'
     );
   }
   if (error instanceof OpenAI.APIError) {

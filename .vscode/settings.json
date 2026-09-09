@@ -1,0 +1,28 @@
+{
+  // ---------- 隐藏 node_modules ----------
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/dist": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/package-lock.json": true
+  },
+  // 不监听 node_modules 变化 —— WSL 上能明显降 CPU
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/dist/**": true
+  },
+
+  // ---------- TypeScript ----------
+  "typescript.tsdk": "lesson02-prompt-engineering/node_modules/typescript/lib",
+  "typescript.preferences.importModuleSpecifier": "relative",
+
+  // ---------- 保存时格式化（需要 esbenp.prettier-vscode 扩展）----------
+  "editor.formatOnSave": true,
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }
+}

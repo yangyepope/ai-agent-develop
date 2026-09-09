@@ -5,7 +5,12 @@
  *
  * 对应知识点：LLM / API / Model / Message / User / Max Tokens / Token
  */
-import { collectText, createClient, resolveModel, runExample } from '../src/index.ts';
+import {
+  collectText,
+  createClient,
+  resolveModel,
+  runExample,
+} from '../lesson02-prompt-engineering/src/index.ts';
 
 await runExample(async () => {
   const client = createClient();

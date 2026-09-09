@@ -31,6 +31,6 @@
     "resolveJsonModule": true,
     "sourceMap": true
   },
-  "include": ["src/**/*.ts", "lesson*/**/*.ts"],
+  "include": ["src/**/*.ts", "*.ts"],
   "exclude": ["node_modules", "dist"]
 }
