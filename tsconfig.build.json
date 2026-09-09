@@ -1,0 +1,13 @@
+{
+  // 只在需要产出 JS 产物时使用：npm run build
+  // 日常学习用不到 —— Node 能直接跑 .ts
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "dist",
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}

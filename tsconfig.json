@@ -1,0 +1,36 @@
+{
+  // 这份配置同时服务两件事：
+  //   1. `node xxx.ts` 直接执行（Node 24 原生剥离类型，不做类型检查）
+  //   2. `npm run typecheck`（tsc 只做类型检查，不产出文件）
+  "compilerOptions": {
+    /* ---------- 目标与模块 ---------- */
+    "target": "es2024", // Node 24 完整支持 ES2024
+    "lib": ["es2024"], // 不引入 DOM，这是纯 Node 工程
+    "module": "nodenext", // 跟随 Node 的 ESM/CJS 解析规则
+    "moduleResolution": "nodenext",
+    "types": ["node"], // 只加载 @types/node 的全局类型
+
+    /* ---------- 严格模式（学习期就该全开）---------- */
+    "strict": true, // 打包了 strictNullChecks 等一系列开关
+    "noUncheckedIndexedAccess": true, // arr[0] 的类型是 T | undefined，强制你判空
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+
+    /* ---------- 让代码能被 Node 原生执行 ---------- */
+    "erasableSyntaxOnly": true, // 禁用 enum / namespace / 构造器参数属性等“非纯类型”语法
+    "verbatimModuleSyntax": true, // import type 必须写明，import 语句原样保留
+    "allowImportingTsExtensions": true, // 相对导入必须写 .ts 后缀（Node 原生执行的要求）
+    "rewriteRelativeImportExtensions": true, // tsc 编译时把 .ts 后缀改写成 .js
+    "isolatedModules": true,
+
+    /* ---------- 其他 ---------- */
+    "noEmit": true, // 默认只检查不产出；构建走 tsconfig.build.json
+    "skipLibCheck": true, // 不检查 node_modules 里的 .d.ts，显著加快速度
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "sourceMap": true
+  },
+  "include": ["src/**/*.ts", "lesson*/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
