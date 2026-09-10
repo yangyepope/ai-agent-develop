@@ -1,0 +1,35 @@
+{
+  // 与 lesson02 保持一致：既能被 Node 24 直接执行，又能用 tsc 做类型检查
+  "compilerOptions": {
+    /* ---------- 目标与模块 ---------- */
+    "target": "es2024",
+    "lib": ["es2024"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "types": ["node"],
+
+    /* ---------- 严格模式 ---------- */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+
+    /* ---------- 让 Node 能原生执行 .ts ---------- */
+    "erasableSyntaxOnly": true, // 禁用 enum / namespace / 构造器参数属性
+    "verbatimModuleSyntax": true, // 纯类型导入必须写 import type
+    "allowImportingTsExtensions": true, // ← 就是这个开关，允许 import './config.ts'
+    "rewriteRelativeImportExtensions": true, // 编译时把 .ts 改写成 .js
+    "isolatedModules": true,
+    "moduleDetection": "force",
+
+    /* ---------- 其他 ---------- */
+    "noEmit": true, // 只检查不产出（allowImportingTsExtensions 要求）
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "sourceMap": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
