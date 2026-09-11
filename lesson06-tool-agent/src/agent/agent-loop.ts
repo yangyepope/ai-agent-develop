@@ -63,6 +63,7 @@ export class AgentLoop {
     try {
       while (state.step < state.maxSteps) {
         state.step++;
+        console.log(state.step);
 
         console.log(`\n========== Agent Step ${state.step} ==========`);
 
@@ -172,6 +173,10 @@ export class AgentLoop {
              */
 
             const input = tool.schema.parse(parsedArguments);
+            console.log('======================================================');
+            console.log(tool.schema.parse(parsedArguments));
+            console.log(input);
+            console.log('======================================================');
 
             /*
              * 真正执行 Tool
