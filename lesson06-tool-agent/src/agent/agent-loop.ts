@@ -70,6 +70,9 @@ export class AgentLoop {
         const response = await this.agent.runLLM(state.messages);
 
         const message = response.choices[0]?.message;
+        console.log('========================================');
+        console.log('message:', message);
+        console.log('========================================');
 
         if (!message) {
           throw new Error('LLM 没有返回消息');
